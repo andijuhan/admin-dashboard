@@ -34,12 +34,30 @@ const Sidebar = () => {
       {
          name: 'build',
          icon: Blocks,
-         menus: ['auth', 'app settings', 'stroage', 'hosting'],
+         menus: [
+            {
+               name: 'auth',
+               link: 'auth',
+            },
+            {
+               name: 'app settings',
+               link: 'app-settings',
+            },
+         ],
       },
       {
          name: 'analytics',
          icon: AreaChart,
-         menus: ['dashboard', 'realtime', 'events'],
+         menus: [
+            {
+               name: 'dashboard',
+               link: 'dashboard',
+            },
+            {
+               name: 'realtime',
+               link: 'realtime',
+            },
+         ],
       },
    ];
 
@@ -68,7 +86,7 @@ const Sidebar = () => {
                   <li>
                      <Link className='link' href={'/'}>
                         <LayoutDashboard className='min-w-max' />
-                        Insight
+                        Dashboard
                      </Link>
                   </li>
                   <li>

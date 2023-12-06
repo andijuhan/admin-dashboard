@@ -20,7 +20,10 @@ const SubMenu = ({ data }) => {
             {/* Dynamic icon */}
             <data.icon className='min-w-max' />
             <p className='capitalize flex-1'>{data.name}</p>
-            <ChevronDown size={20} />
+            <ChevronDown
+               size={20}
+               className={`${subMenuOpen && 'rotate-180'} duration-75`}
+            />
          </li>
          <motion.ul
             animate={
@@ -32,17 +35,17 @@ const SubMenu = ({ data }) => {
                        height: 0,
                     }
             }
-            className='flex flex-col pl-14 text-[0.8rem] font-normal overflow-hidden h-0'
+            className='flex flex-col pl-12 text-[0.8rem] font-normal overflow-hidden h-0'
          >
             {data.menus.map((menu, index) => (
                <li key={index}>
                   <Link
                      className={`link !bg-transparent capitalize ${
-                        pathName.includes(menu) && '!text-blue-600'
+                        pathName.includes(menu.name) && '!text-blue-600'
                      }`}
-                     href={`/${data.name}/${menu}`}
+                     href={`/${data.name}/${menu.link}`}
                   >
-                     {menu}
+                     {menu.name}
                   </Link>
                </li>
             ))}
