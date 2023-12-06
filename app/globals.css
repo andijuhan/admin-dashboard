@@ -10,7 +10,7 @@ h1 {
    @apply text-2xl font-semibold capitalize;
 }
 .link {
-   @apply p-2.5 flex rounded-md gap-6 items-center md:cursor-pointer cursor-default;
+   @apply p-2.5 flex rounded-md gap-6 items-center md:cursor-pointer cursor-default text-gray-700;
 }
 .active {
    @apply bg-blue-100 text-blue-600;

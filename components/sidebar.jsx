@@ -1,9 +1,17 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { ChevronLeft, LayoutDashboard } from 'lucide-react';
+import {
+   ChevronLeft,
+   LayoutDashboard,
+   Users,
+   BookText,
+   Settings,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SubMenu from './sub-menu';
+import { Blocks, AreaChart } from 'lucide-react';
 
 const Sidebar = () => {
    const Sidebar_animation = {
@@ -21,6 +29,19 @@ const Sidebar = () => {
       },
    };
    const [isOpen, setIsOpen] = useState(true);
+
+   const subMenuList = [
+      {
+         name: 'build',
+         icon: Blocks,
+         menus: ['auth', 'app settings', 'stroage', 'hosting'],
+      },
+      {
+         name: 'analytics',
+         icon: AreaChart,
+         menus: ['dashboard', 'realtime', 'events'],
+      },
+   ];
 
    return (
       <aside>
@@ -43,11 +64,40 @@ const Sidebar = () => {
             </div>
             {/* Menu */}
             <div className='h-full flex flex-col'>
-               <ul className='whitespace-pre px-2.5 text-[0.9rem] py-5 flex flex-col gap-1 font-medium overflow-x-hidden'>
+               <ul className='whitespace-pre px-2.5 text-[0.9rem] py-5 flex flex-col gap-1 font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100'>
                   <li>
                      <Link className='link' href={'/'}>
                         <LayoutDashboard className='min-w-max' />
                         Insight
+                     </Link>
+                  </li>
+                  <li>
+                     <Link className='link' href={'/'}>
+                        <BookText className='min-w-max' />
+                        Posts
+                     </Link>
+                  </li>
+                  {/* With sub menu */}
+                  <div className='border-y py-5 border-slate-300'>
+                     <small className='pl-3 text-slate-500 inline-block mb-2'>
+                        Product categories
+                     </small>
+                     {subMenuList.map((menu, index) => (
+                        <div key={index} className='flex flex-col gap-1'>
+                           <SubMenu data={menu} />
+                        </div>
+                     ))}
+                  </div>
+                  <li>
+                     <Link className='link' href={'/'}>
+                        <Users className='min-w-max' />
+                        Users
+                     </Link>
+                  </li>
+                  <li>
+                     <Link className='link' href={'/'}>
+                        <Settings className='min-w-max' />
+                        Settings
                      </Link>
                   </li>
                </ul>
