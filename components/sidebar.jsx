@@ -113,16 +113,14 @@ const Sidebar = () => {
             className='bg-white text-gray shadow-xl z-[999] w-[256px] max-w-[256px] h-screen overflow-hidden md:relative fixed'
          >
             {/* Logo */}
-            <div className='flex items-center gap-2.5 border-b py-3 mx-3'>
+            <div className='flex items-center font-medium gap-5 border-b py-3 mx-3'>
                <Image
-                  src={'/images/icon.png'}
+                  src={'/images/logoipsum-245.svg'}
                   alt='logo'
-                  width={45}
-                  height={45}
+                  width={35}
+                  height={35}
                />
-               <span className='text-xl font-medium whitespace-pre'>
-                  Firefake
-               </span>
+               <span className='text-xl whitespace-pre'>YourApp</span>
             </div>
             {/* Menu */}
             <div className='h-full flex flex-col'>
